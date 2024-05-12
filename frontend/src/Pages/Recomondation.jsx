@@ -4,6 +4,7 @@ import Filter from '../assets/filter.png';
 import Search from '../assets/search.png';
 import DownArrow from '../assets/down-arrow.png';
 import Close from '../assets/close.png';
+import Chat from '../assets/chat.png';
 
 function Recomondation() {
     const textAreaRef = useRef(null);
@@ -48,7 +49,7 @@ function Recomondation() {
 
     return (
         <div className='relative bg-blackBlue'>
-            <div className='absolute top-0 left-0 w-full h-screen bg-blackBlue opacity-40'></div>
+            <div className='absolute top-0 left-0 w-full h-screen bg-blackBlue opacity-50'></div>
             <video src={bgVideo} autoPlay loop muted className='w-screen h-screen object-cover'/>
             <div className='absolute top-12 transform -translate-y-1/2 w-full text-lightBlue flex items-center flex-col gap-14 font-roboto font-semibold'>
                 <h1 className='text-5xl'>Search Your Trip</h1>
@@ -114,7 +115,7 @@ function Recomondation() {
                     </div>
                 </div>
                 {searched && (
-                    <div className=''>
+                    <div>
                         <button onClick={handleSearch} className='flex flex-col items-center'>
                             <p>See your recomondation</p>
                             <img src={DownArrow} alt='' className='w-[32px]'/>
@@ -125,12 +126,17 @@ function Recomondation() {
             <div ref={recommendationRef} className='flex flex-col justify-center items-center'>
                 {searched && (
                     <div className='m-24 w-9/12 rounded-3xl p-[2px] bg-gradient-to-b from-lightGradientBlue to-darkGradientBlue'>
-                        <div className='p-5 h-96 rounded-3xl bg-gradient-to-b from-[#131A22] to-[#191D24] text-lightBlue text-center'>
+                        <div className='p-5 h-fit rounded-3xl bg-gradient-to-b from-[#131A22] to-[#191D24] text-lightBlue text-center'>
                             <p className="text-xl">Here are your travel recommendations...</p>
                         </div>
                     </div>
                 )}
             </div>
+            <button className='fixed bottom-8 right-8 text-sm bg-gradient-to-r from-lightGradientBlue to-darkGradientBlue w-[160px] outline-none text-White p-2 rounded-full flex flex-row justify-center gap-1 place-items-center'
+                onClick={() => window.location.href = '/chat'} >
+                <img src={Chat} alt=''className='w-[16px]'/>
+                Chat with bot
+            </button>
         </div>
     )
 }
